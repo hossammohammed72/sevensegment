@@ -1,0 +1,78 @@
+<DOCTYPE html>
+<html>
+    <body>
+        <script>
+            var t  = null ; 
+        function doit(){
+            setInterval("rep()",1000);
+        } 
+        var count = 0 ;
+        function rep(){
+            console.log(count);
+            ops= document.getElementById('sel').options ;
+            console.log(ops[count].selected);
+                if(ops[count].selected == true)
+                 {
+                     console.log(ops[count].innerHTML);
+                     document.bgColor=ops[count].innerHTML; 
+                    
+                 }
+                 count++;
+                 if(count == ops.length-1)
+                 count = 0 ;
+            return ; 
+        }
+        function shekshak(){
+            var arr = document.getElementsByName('myradio');
+            var message = document.getElementById('message');
+            for(x in arr){
+                if(arr[x].checked == true){
+                    document.bgColor=arr[x].value;
+                    
+                    if(arr[x].value == "red")
+                        message.innerHTML= "أحمر يعني ايه يا ولاد ؟؟ <br> خططر";
+                    }else if(arr[x].value == "yellow")
+                        message.innerHTML= "أصفر يعني ايه يا ولاد ؟ استعد";
+                        else if(arr[x].value == "green")
+                        message.innerHTML= "اخضر يعني ايه يا ولاد ؟ انطللللللللللق";
+                    
+                        
+            }
+        }
+        function clearit(){
+            var screen = document.getElementById('screen');
+            screen.value="";
+        }
+        function typeit(x){
+            var screen = document.getElementById('screen');
+
+            screen.value+=x;
+        }
+        function backspace(){
+            var screen = document.getElementById('screen');
+            screen.value = parseInt(screen.value/10);
+        }
+        </script>
+        <form id='form'> 
+           <input type='text' id='screen' dia style="width:200px;height:50px;background-color:darkgrey">
+        </form>
+           <br>
+           <br>
+           <button style="width:50PX;" onclick="typeit(1)" >1</button>
+           <button style="width:50PX;" onclick="typeit(2)" >2</button>
+           <button style="width:50PX;" onclick="typeit(3)" >3</button>
+           <br>
+           <button style="width:50PX;" onclick="typeit(4)" >4</button>
+           <button style="width:50PX;" onclick="typeit(5)" >5</button>
+           <button style="width:50PX;" onclick="typeit(6)" >6</button>
+           <br>
+           <button style="width:50PX;" onclick="typeit(7)" >7</button>
+           <button style="width:50PX;" onclick="typeit(8)" >8</button>
+           <button style="width:50PX;" onclick="typeit(9)" >9</button>
+           <br>
+           <button style="width:50PX;" onclick='clearit()'>clear</button>
+           <button style="width:50PX;" onclick="typeit(0)">0</button>
+           <button style="width:50PX;" onclick='backspace()'> <- </button>
+       
+    </body>
+</html>
